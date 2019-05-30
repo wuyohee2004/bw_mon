@@ -4,8 +4,8 @@ import itchat, time, sys,io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
 #https://solarwinds-apac.schneider-electric.com/Orion/Interfaces/InterfaceDetails.aspx?NetObject=I:45156&view=InterfaceDetails
-npm_server = 'solarwinds-apac.schneider-electric.com'
-username = 
+npm_server = 
+username =  
 password = 
 
 verify = False
@@ -30,7 +30,7 @@ def fatch_in_percentage(intID):
     return swis.query(query % dict(ID=intID))
 
 def main():
-    itchat.auto_login(hotReload=True, enableCmdQR=True)
+    itchat.auto_login(hotReload=True, enableCmdQR=2)
     inPercent_dict = {}
     for key in site_dict:
         result=fatch_in_percentage(site_dict[key])
@@ -39,7 +39,9 @@ def main():
         inPercent_dict[key] = data['InPercentUtil']
     clist = itchat.search_chatrooms(name=u'Connectivity CN')
     olist = clist[0]["UserName"]
-    itchat.send(inPercent_dict, olist)
-
+    inPercent = str(inPercent_dict)
+    type(inPercent)
+    itchat.send((inPercent), 'filehelper')
+    #itchat.send('test','filehelper')
 if __name__ == '__main__':
     main()
