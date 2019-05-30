@@ -5,8 +5,8 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 
 #https://solarwinds-apac.schneider-electric.com/Orion/Interfaces/InterfaceDetails.aspx?NetObject=I:45156&view=InterfaceDetails
 npm_server = 'solarwinds-apac.schneider-electric.com'
-username = 'apa\sesa392975'
-password = 'Passw0rd17!!'
+username = 
+password = 
 
 verify = False
 
